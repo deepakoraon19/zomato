@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+.nav-tabs {
+  font-family: "Trirong", serif !important;
+  font-size: 1.9 rem;
+  /* font-style: bold; */
+}
+
+.nav-bar{
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 10px 36px 0px;
+}
+.logo{
+  height: 4vh;
+  margin-left: 1.5rem;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.p-menuitem {
+  margin: 1.5rem !important;
+  font-family: "Roboto", serif !important;
+  font-size: 1.9 rem;
+}
+
+a.p-element>span{
+  /* display: flex !important; */
+  margin:0 0.2rem;
+
+}
