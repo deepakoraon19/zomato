@@ -13,6 +13,5 @@ export class RestaurantTileComponent implements OnInit {
   @Input() meal ?: Meal
 
   ngOnInit(): void {
-    console.log(this.meal)
   }
 }
