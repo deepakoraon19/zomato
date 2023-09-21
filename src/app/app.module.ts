@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantTileComponent } from './components/restaurant-tile/restaurant-tile.component';
+import { DataViewModule, DataViewLayoutOptions } from 'primeng/dataview';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RestaurantTileComponent } from './components/restaurant-tile/restaurant
     AppRoutingModule,
     NavBarComponent,
     HttpClientModule,
-    RestaurantTileComponent
+    RestaurantTileComponent,
+    DataViewModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

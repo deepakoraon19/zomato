@@ -1,1 +1,11 @@
-<p>{{meal?.strCategory}}</p>
+<div class="d-flex align-items-center px-3">
+  <div>
+    <img src={{meal.img1}} class="img-tile">
+  </div>
+  <div class="mx-4">
+    <p class="rest-name mb-1">{{meal.loc_name.substring(0, meal.loc_name.indexOf('('))}}</p>
+    <p class="rest-address mb-1">{{meal.city}}</p>
+    <p class="gold">{{meal.price_bucket}}</p>
+  </div>
+
+</div>

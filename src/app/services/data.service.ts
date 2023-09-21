@@ -3,19 +3,23 @@ import { Injectable } from '@angular/core';
 import { Categories } from '../models/categories';
 import { Observable } from 'rxjs';
 import { Dishes } from '../models/dish';
+import { googleScriptRes } from '../models/response';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http : HttpClient) { }
-
-  getCategories(url : string):Observable<Categories>{
-    return this.http.get<Categories>(url)
+  getCategories(url: string): Observable<Categories> {
+    return this.http.get<Categories>(url);
   }
 
-  getDishes(url : string, category : string):Observable<Dishes>{
-    return this.http.get<Dishes>(url + category)
+  getDishes(url: string, category: string): Observable<Dishes> {
+    return this.http.get<Dishes>(url + category);
+  }
+
+  getRestaurants(url: string): Observable<googleScriptRes> {
+    return this.http.get<googleScriptRes>(url);
   }
 }
