@@ -4,6 +4,7 @@ import { Categories } from '../models/categories';
 import { Observable } from 'rxjs';
 import { Dishes } from '../models/dish';
 import { googleScriptRes } from '../models/response';
+import { Restaurant } from '../models/restaurants';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class DataService {
     return this.http.get<Dishes>(url + category);
   }
 
-  getRestaurants(url: string): Observable<googleScriptRes> {
-    return this.http.get<googleScriptRes>(url);
+  getRestaurants(url: string): Observable<Restaurant[]> {
+    return this.http.get<Restaurant[]>(url);
   }
 }

@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Meal } from 'src/app/models/categories';
 import { Restaurant } from 'src/app/models/restaurants';
+import { GetRestaurantNameDirective } from 'src/app/Directive/get-restaurant-name.directive';
 
 @Component({
   selector: 'app-restaurant-tile',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, GetRestaurantNameDirective],
   templateUrl: './restaurant-tile.component.html',
   styleUrls: ['./restaurant-tile.component.css']
 })

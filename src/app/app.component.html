@@ -1,23 +1,7 @@
 <app-nav-bar></app-nav-bar>
 <div class="row">
-  <div class="d-flex justify-content-around col-md-4 col-sm-6 col-12" *ngFor="let item of data">
+  <div class="row p-4 d-flex justify-content-around col-md-4 col-sm-6 col-12" *ngFor="let item of data">
     <app-restaurant-tile class="tile" [meal]="item"></app-restaurant-tile>
   </div>
 </div>
 
-<!-- <p-dataView [value]="data">
-  <ng-template let-meal pTemplate="listItem">
-    <div class="d-flex align-items-center px-3">
-      <div>
-        <img src="{{ meal.img1 }}" class="img-tile" />
-      </div>
-      <div class="mx-4">
-        <p class="rest-name mb-1">
-          {{ meal.loc_name.substring(0, meal.loc_name.indexOf("(")) }}
-        </p>
-        <p class="rest-address mb-1">{{ meal.city }}</p>
-        <p class="gold">{{ meal.price_bucket }}</p>
-      </div>
-    </div>
-  </ng-template>
-</p-dataView> -->

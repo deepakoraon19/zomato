@@ -32,6 +32,12 @@ a.p-element>span{
 
 .img-tile{
   height:10vh;
+  width:13vh;
+}
+
+.img-tile-fallback{
+  height:10vh;
+  width:13vh;
 }
 
 .gold{
