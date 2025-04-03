@@ -1,36 +1,27 @@
-<!-- <p-dialog header="Login" [visible]="true" [modal]="true" [style]="{ width: '25rem' }">
+<p-dialog
+  header="Login"
+  [visible]="true"
+  [modal]="true"
+  [style]="{ width: '25rem' }"
+>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="d-flex flex flex-row items-center gap-3 mb-4">
+      <label for="firstName">First Name: </label>
+      <input pInputText id="firstName" type="text" formControlName="firstName" style="height: 3rem;"/>
+    </div>
     <div class="flex items-center gap-4 mb-4">
-      <label for="username" class="font-semibold w-24">Username</label>
-      <input pInputText id="username" class="flex-auto" autocomplete="off" />
-  </div>
-    <label for="firstName">First Name: </label>
-    <input id="firstName" type="text" formControlName="firstName" />
-    <label for="lastName">Last Name: </label>
-    <input id="lastName" type="text" formControlName="lastName" />
-    <label for="userName">User Name: </label>
-    <input id="userName" type="text" formControlName="userName" />
-    <label for="password">Password: </label>
-    <input id="password" type="text" formControlName="password" />
+      <label for="lastName">Last Name: </label>
+      <input pInputText id="lastName" type="text" formControlName="lastName"  style="height: 3rem;"/>
+    </div>
+    <div class="flex items-center gap-4 mb-4">
+      <label for="userName">User Name: </label>
+      <input pInputText id="userName" type="text" formControlName="userName"  style="height: 3rem;"/>
+    </div>
+    <div class="flex items-center gap-4 mb-4">
+      <label for="password">Password: </label>
+      <input pInputText id="password" type="text" formControlName="password"  style="height: 3rem;"/>
+    </div>
     <button type="submit" [disabled]="!loginForm.valid">Submit</button>
   </form>
-</p-dialog> -->
+</p-dialog>
 
-<div class="card flex justify-center">
-  <!-- <p-button (click)="showDialog()" label="Show" /> -->
-  <p-dialog header="Edit Profile" [modal]="true" [visible]="true" [style]="{ width: '25rem' }">
-      <span class="p-text-secondary block mb-8">Update your information.</span>
-      <div class="flex items-center gap-4 mb-4">
-          <label for="username" class="font-semibold w-24">Username</label>
-          <input pInputText id="username" class="flex-auto" autocomplete="off" />
-      </div>
-      <div class="flex items-center gap-4 mb-8">
-          <label for="email" class="font-semibold w-24">Email</label>
-          <input pInputText id="email" class="flex-auto" autocomplete="off" />
-      </div>
-      <div class="flex justify-end gap-2">
-          <p-button label="Cancel" severity="secondary"  />
-          <p-button label="Save"  />
-      </div>
-  </p-dialog>
-</div>
