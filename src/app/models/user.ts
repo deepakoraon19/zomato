@@ -4,6 +4,8 @@ export interface User {
   firstName: string;
   lastName: string;
   password: string;
-  createdOn: string;
-  updatedOn: string;
+  createdOn?: string;
+  updatedOn?: string;
+  token?: string;
+  isSeller?: boolean;
 }

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RestaurantTileComponent } from "../../components/restaurant-tile/restaurant-tile.component";
 import { Environment } from 'src/app/environments/environment';
 import { DataService } from 'src/app/services/data.service';
-import { Meal } from 'src/app/models/categories';
 import { Restaurant } from 'src/app/models/restaurants';
 
 @Component({
@@ -15,10 +14,8 @@ import { Restaurant } from 'src/app/models/restaurants';
 })
 export class RestaurantGalleryComponent implements OnInit {
   constructor(private dataSvc : DataService) {}
-  categories: Meal[] = [];
   data: Restaurant[] = [];
   ngOnInit(): void {
-    this.dataSvc.getCategories(Environment.categoryURL).subscribe(p => this.categories = p.meals)
     this.dataSvc
       .getRestaurants(`${Environment.API_URL}/api/Restaurant?page=0`)
       .subscribe((p) => {

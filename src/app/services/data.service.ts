@@ -2,9 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Categories } from '../models/categories';
 import { Observable } from 'rxjs';
-import { Dishes } from '../models/dish';
-import { googleScriptRes } from '../models/response';
 import { Restaurant } from '../models/restaurants';
+import { config } from 'config';
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +15,8 @@ export class DataService {
     return this.http.get<Categories>(url);
   }
 
-  getDishes(url: string, category: string): Observable<Dishes> {
-    return this.http.get<Dishes>(url + category);
+  getRestaurantMenu(id : number) : Observable<Restaurant>{
+    return this.http.get<Restaurant>(`${config.RESTAURANT_URL}/${id}`)
   }
 
   getRestaurants(url: string): Observable<Restaurant[]> {

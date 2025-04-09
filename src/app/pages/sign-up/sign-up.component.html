@@ -1,11 +1,19 @@
 <p-dialog
-  header="Login"
+  header="Sign Up"
   [visible]="true"
   [modal]="true"
   [style]="{ width: '25rem' }"
   [closable]="false"
 >
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="d-flex flex-row justify-center align-items-center gap-3 mb-4">
+      <label style="width : 6rem;" for="firstName">First Name: </label>
+      <input pInputText id="firstName" type="text" formControlName="firstName" style="height: 2.5rem;"/>
+    </div>
+    <div class="flex items-center gap-4 mb-4">
+      <label  style="width : 6rem;" for="lastName">Last Name: </label>
+      <input pInputText id="lastName" type="text" formControlName="lastName"  style="height: 2.5rem;"/>
+    </div>
     <div class="flex items-center gap-4 mb-4">
       <label  style="width : 6rem;" for="userName">User Name: </label>
       <input pInputText id="userName" type="text" formControlName="userName"  style="height: 2.5rem;"/>
@@ -15,12 +23,12 @@
       <input pInputText id="password" type="text" formControlName="password"  style="height: 2.5rem;"/>
     </div>
     <div class="d-flex justify-content-center align-items-center">
-      <button pButton type="submit" style="height: 2.5rem;" [disabled]="!loginForm.valid">Login</button>
+      <button pButton type="submit" style="height: 2.5rem;" [disabled]="!loginForm.valid">Sign up</button>
     </div>
   </form>
   <div class="d-flex flex-row justify-content-center align-items-center">
-    <span>Don't have an account?</span>
-    <p-button (onClick)="navigateToSignUp()" label="Sign up" styleClass="p-button-text"></p-button>
+    <span>Already have an account?</span>
+    <p-button (onClick)="navigateToLogin()" label="Login now!" styleClass="p-button-text"></p-button>
   </div>
 </p-dialog>
 

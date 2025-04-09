@@ -1,0 +1,27 @@
+<div class="">
+  <div class="d-flex flex-row p-4">
+    <img class="mb-3 mr-5" style="width: 120px;" *ngIf="restaurant?.img1" [src]="restaurant?.img1" alt="NA"/>
+    <div class="d-flex flex-column">
+      <h4 class="mb-3">{{ restaurant?.locName }}</h4>
+      <h6 class="mb-3">{{ restaurant?.address }}</h6>
+      <h6 class="text-success">{{ restaurant?.deliveryTime }}</h6>
+    </div>
+  </div>
+  <hr/>
+  <div *ngFor="let group of groups">
+    <div *ngFor="let menuItem of group">
+    <p>{{menuItem.name}}</p>
+    </div>
+  </div>
+
+<p-accordion [multiple]="true">
+  @for (tab of tabs; track tab.title) {
+      <p-accordion-panel [value]="tab.value">
+          <p-accordion-header>{{ tab.title }}</p-accordion-header>
+          <p-accordion-content>
+              <p class="m-0">{{ tab.content }}</p>
+          </p-accordion-content>
+      </p-accordion-panel>
+  }
+</p-accordion>
+</div>

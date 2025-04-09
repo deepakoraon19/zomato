@@ -4,11 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RestaurantTileComponent } from './components/restaurant-tile/restaurant-tile.component';
 import { DataViewModule } from 'primeng/dataview';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DataViewModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

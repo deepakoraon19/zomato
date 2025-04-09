@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center py-3 px-4">
+<div class="d-flex align-items-center py-3 px-4" (click)="navigateToRestaurant()">
   <div *ngIf="meal.img1 && meal.img1.length > 0; else elseBlock">
     <img src="{{ meal.img1 }}" alt="N/A" class="img-tile" />
   </div>

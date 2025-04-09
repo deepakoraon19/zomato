@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,7 +12,13 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent {
+  constructor(private router : Router){}
   items: MenuItem[] = [];
+
+  logOut(){
+    localStorage.clear();
+    this.router.navigate(["/login"]);
+  }
 
   ngOnInit() {
     this.items = [
@@ -40,7 +47,12 @@ export class NavBarComponent {
         icon: 'pi pi-fw pi-cart-plus',
         styleClass : 'nav-item'
       },
-
+      {
+        label: 'Log out',
+        icon: 'pi pi-fw pi-sign-out',
+        styleClass : 'nav-item',
+        command:()=>this.logOut()
+      },
     ];
   }
 }

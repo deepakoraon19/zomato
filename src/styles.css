@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@tailwind utilities;
 @import "primeicons/primeicons.css";
+
 
 .nav-tabs {
   font-family: "Trirong", serif !important;
@@ -20,9 +23,8 @@ a{
 }
 
 .p-menuitem {
-  margin: 1.5rem !important;
+  margin: .5rem !important;
   font-family: "Roboto", serif !important;
-  font-size: 1.9 rem;
 }
 
 a.p-element>span{
@@ -59,4 +61,34 @@ a.p-element>span{
 .rest-address{
   font-size:0.8rem;
   /* padding: 0.1rem !important */
+}
+
+/* styles.scss */
+.custom-navbar {
+  background-color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.custom-navbar > .p-menuitem-link {
+  color: #333 !important;
+}
+
+a.p-menuitem-link:hover {
+  background-color: #ffffff!important;
+  color: #000;
+}
+
+.custom-navbar > .p-menubar{
+  border:none !important;
+  background-color: #ffffff !important;
+}
+
+.nav-item {
+  line-height: 1;
+  margin:0rem 0.25rem !important;
+}
+
+.nav-item ::hover {
+  background-color: #ffffff !important;
 }

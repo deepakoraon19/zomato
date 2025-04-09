@@ -1,3 +1,5 @@
+import { Dish } from "./dish";
+
 export interface Restaurant {
   index: number;
   city: string;
@@ -24,4 +26,5 @@ export interface Restaurant {
   img5: string;
   scanDate: string; // ISO 8601 formatted date string
   tid: string;
+  restaurantMenus: Dish[];
 }
