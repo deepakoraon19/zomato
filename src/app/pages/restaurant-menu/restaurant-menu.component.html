@@ -1,27 +1,43 @@
 <div class="">
   <div class="d-flex flex-row p-4">
-    <img class="mb-3 mr-5" style="width: 120px;" *ngIf="restaurant?.img1" [src]="restaurant?.img1" alt="NA"/>
+    <img
+      class="mb-3 mr-5"
+      style="width: 120px"
+      *ngIf="restaurant?.img1"
+      [src]="restaurant?.img1"
+      alt="NA"
+    />
     <div class="d-flex flex-column">
       <h4 class="mb-3">{{ restaurant?.locName }}</h4>
       <h6 class="mb-3">{{ restaurant?.address }}</h6>
       <h6 class="text-success">{{ restaurant?.deliveryTime }}</h6>
     </div>
   </div>
-  <hr/>
-  <div *ngFor="let group of groups">
-    <div *ngFor="let menuItem of group">
-    <p>{{menuItem.name}}</p>
-    </div>
-  </div>
+  <hr />
 
-<p-accordion [multiple]="true">
-  @for (tab of tabs; track tab.title) {
-      <p-accordion-panel [value]="tab.value">
-          <p-accordion-header>{{ tab.title }}</p-accordion-header>
-          <p-accordion-content>
-              <p class="m-0">{{ tab.content }}</p>
-          </p-accordion-content>
-      </p-accordion-panel>
-  }
-</p-accordion>
+  <p-accordion [multiple]="true">
+    <div *ngFor="let group of groups">
+      <p-accordionTab [header]="group[0].category">
+        <div *ngFor="let menuItem of group">
+          <div class="d-flex align-items-lg-center justify-content-around">
+            <div class="d-flex mb-4 w-75">
+              <img style="height: 9rem" class="mr-5" src="./assets/food.jpeg" />
+              <div class="d-flex flex-column">
+                <p class="font-weight-bold mb-1">{{ menuItem.name }}</p>
+                <div class="d-flex flex-column ">
+                  <p class="mb-1">{{ "$" + menuItem.price }}</p>
+                  <p class="text-secondary font-italic">
+                    {{
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                    }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <app-add-cart [dish]="menuItem"></app-add-cart>
+          </div>
+        </div>
+      </p-accordionTab>
+    </div>
+  </p-accordion>
 </div>
