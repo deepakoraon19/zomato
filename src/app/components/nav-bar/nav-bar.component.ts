@@ -20,6 +20,10 @@ export class NavBarComponent {
     this.router.navigate(["/login"]);
   }
 
+  goToCart(){
+    this.router.navigate(['/cart'])
+  }
+
   ngOnInit() {
     this.items = [
       {
@@ -45,7 +49,8 @@ export class NavBarComponent {
       {
         label: 'Cart',
         icon: 'pi pi-fw pi-cart-plus',
-        styleClass : 'nav-item'
+        styleClass : 'nav-item',
+        command:()=>this.goToCart()
       },
       {
         label: 'Log out',

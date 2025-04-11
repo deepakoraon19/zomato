@@ -1,4 +1,4 @@
-<div class="d-flex flex-row" *ngIf="dish && cart.includes(dish); else showCounter">
+<div class="d-flex flex-row" *ngIf="getCount(); else showCounter">
   <div class="symbol-button" (click)="remove()">-</div>
   <div class="font-weight-bold">{{count}}</div>
   <div class="symbol-button" (click)="add()">+</div>

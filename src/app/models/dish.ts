@@ -6,3 +6,8 @@ export interface Dish {
   description?: string;     // Optional description
   price: number;            // Price as a number (e.g., 15.99)
 }
+
+export interface CartItem{
+  dish : Dish;
+  count : number;
+}

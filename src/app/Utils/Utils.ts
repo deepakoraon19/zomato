@@ -12,3 +12,8 @@ export function groupBy<T, K extends keyof any>(arr : T[], keyGetter : (item : T
   }, new Map<K,T[]>())
 }
 
+
+export function roundUpToDecimal(number : number, decimals : number) : number {
+  const factor = Math.pow(10, decimals);
+  return Math.ceil(number * factor) / factor;
+}

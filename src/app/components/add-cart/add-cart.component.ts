@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Dish } from 'src/app/models/dish';
+import { CartItem, Dish } from 'src/app/models/dish';
 import { CommonService } from 'src/app/services/common.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-add-cart',
@@ -10,14 +11,16 @@ import { CommonService } from 'src/app/services/common.service';
   templateUrl: './add-cart.component.html',
   styleUrls: ['./add-cart.component.css'],
 })
-export class AddCartComponent implements OnInit {
+export class AddCartComponent implements OnInit, OnDestroy {
   @Input() dish?: Dish;
-  cart: Dish[] = [];
+  cart = [] as CartItem[];
   count: number = 0;
+  destroy$ = new Subject<void>();
   constructor(private commonSvc: CommonService) {}
+
   ngOnInit(): void {
-    this.commonSvc.cart.subscribe((cart) => {
-      this.count = cart.filter((p) => p.id === this.dish?.id).length;
+    this.commonSvc.cart.pipe(takeUntil(this.destroy$)).subscribe((cart) => {
+      this.count = cart.find(p => p.dish.id === this.dish?.id)?.count ?? 0
       this.cart = cart;
     });
   }
@@ -25,7 +28,17 @@ export class AddCartComponent implements OnInit {
   add() {
     this.dish && this.commonSvc.addToCart(this.dish);
   }
+
   remove() {
     this.dish && this.commonSvc.removeFromCart(this.dish);
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  getCount() {
+    return this.dish && this.cart.some(p => p.dish.id === this.dish?.id);
   }
 }
