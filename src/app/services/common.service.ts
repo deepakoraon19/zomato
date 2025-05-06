@@ -7,18 +7,21 @@ import { Dish, CartItem } from '../models/dish';
 })
 export class CommonService {
   constructor() {
-    this.cart.subscribe(cart => localStorage.setItem("cart", JSON.stringify(cart)))
+    this.cart.subscribe((cart) =>
+      localStorage.setItem('cart', JSON.stringify(cart))
+    );
   }
 
-  temp = localStorage.getItem("cart")
-  private privateCart = new BehaviorSubject(this.temp ? JSON.parse(this.temp) as CartItem[] : [] as CartItem[]);
+  temp = localStorage.getItem('cart');
+  private privateCart = new BehaviorSubject(
+    this.temp ? (JSON.parse(this.temp) as CartItem[]) : ([] as CartItem[])
+  );
   cart = this.privateCart.asObservable();
-
 
   addToCart(dish: Dish) {
     if (
       this.privateCart.value.length > 0 &&
-      this.privateCart.value[0].dish.restaurant_id !== dish.restaurant_id
+      this.privateCart.value[0].dish.restaurantId !== dish.restaurantId
     ) {
       this.privateCart.next([{ dish, count: 1 }]);
     } else {
@@ -29,7 +32,7 @@ export class CommonService {
       else this.privateCart.value.push({ dish, count: 1 });
       this.privateCart.next([...this.privateCart.value]);
     }
-
+    // console.log(this.privateCart)
   }
 
   removeFromCart(dish: Dish) {

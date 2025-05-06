@@ -7,11 +7,11 @@ import { RestaurantMenuComponent } from './pages/restaurant-menu/restaurant-menu
 import { CartComponent } from './pages/cart/cart.component';
 
 export const routes: Routes = [
-  {path: "login", component:LoginComponent},
-  {path: "home", component:RestaurantGalleryComponent},
-  {path: "sign-up", component:SignUpComponent},
-  {path: "restaurant/:id", component:RestaurantMenuComponent},
-  {path: "cart", component:CartComponent},
+  {path: "login",loadChildren: () => import('./pages/login/login.component').then(m => m.LoginComponent)},
+  {path: "home",loadChildren: () => import('./pages/restaurant-gallery/restaurant-gallery.component').then(m => m.RestaurantGalleryComponent)},
+  {path: "sign-up", loadChildren:()=>import("./pages/sign-up/sign-up.component").then(m => m.SignUpComponent)},
+  {path: "restaurant/:id",loadChildren:()=>import("./pages/restaurant-menu/restaurant-menu.component").then(m => m.RestaurantMenuComponent)},
+  {path: "cart",loadChildren:()=>import("./pages/cart/cart.component").then(m => m.CartComponent)},
   {path: "", redirectTo:'login', pathMatch:"full"},
 ];
 
