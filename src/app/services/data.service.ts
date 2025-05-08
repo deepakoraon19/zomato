@@ -19,7 +19,7 @@ export class DataService {
     return this.http.get<Restaurant>(`${config.RESTAURANT_URL}/${id}`)
   }
 
-  getRestaurants(page: number): Observable<Restaurant[]> {
-    return this.http.get<Restaurant[]>(`${config.RESTAURANT_URL}?page=${page}`);
+  getRestaurants(url: string): Observable<Restaurant[]> {
+    return this.http.get<Restaurant[]>(url);
   }
 }

@@ -25,7 +25,7 @@ export class RestaurantGalleryComponent implements OnInit {
   private fetchRestaurant() {
     this.loadingData = true
     this.dataSvc
-      .getRestaurants(this.page)
+      .getRestaurants(`${Environment.API_URL}/api/Restaurant?page=${this.page}`)
       .subscribe((p) => {
         this.data = [...this.data, ...p];
         this.loadingData = false
